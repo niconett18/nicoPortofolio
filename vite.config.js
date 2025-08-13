@@ -17,8 +17,7 @@ export default defineConfig({
           vendor: ['react', 'react-dom'],
           lottie: ['@lottiefiles/dotlottie-react'],
           animations: ['aos', 'framer-motion'],
-          icons: ['lucide-react'],
-          three: ['three', '@react-three/fiber', '@react-three/drei']
+          icons: ['lucide-react']
         }
       }
     }
