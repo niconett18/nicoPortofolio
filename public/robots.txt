@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://nicholasedmund.netlify.app/sitemap.xml
