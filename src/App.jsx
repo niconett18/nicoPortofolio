@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback, memo } from "react";
-import { Github, Linkedin, Mail, ExternalLink, Instagram, Sparkles, FileText, Code, Award, Globe, ArrowUpRight, UserCheck, Share2, User, MessageSquare, Send, ArrowRight, Youtube, Code2, MessageCircle } from "lucide-react";
+import { Github, Linkedin, Mail, ExternalLink, Instagram, Sparkles, FileText, Code, Award, Globe, ArrowUpRight, UserCheck, Share2, User, MessageSquare, Send, ArrowRight, Youtube, Code2, MessageCircle, Menu, X } from "lucide-react";
 import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import AOS from 'aos';
@@ -896,6 +896,18 @@ const WelcomeScreen = ({ onLoadingComplete }) => {
 
 const App = () => {
   const [showWelcome, setShowWelcome] = useState(true);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const handleNavClick = (e, id) => {
+    e.preventDefault();
+    const section = document.querySelector(`#${id}`);
+    if (section) {
+      const offset = 80; // account for fixed navbar height
+      const top = section.getBoundingClientRect().top + window.scrollY - offset;
+      window.scrollTo({ top, behavior: "smooth" });
+    }
+    setIsMobileMenuOpen(false);
+  };
 
   if (showWelcome) {
     return <WelcomeScreen onLoadingComplete={() => setShowWelcome(false)} />;
@@ -915,6 +927,7 @@ const App = () => {
                 <a
                   key={item}
                   href={`#${item}`}
+                  onClick={(e) => handleNavClick(e, item)}
                   className={`transition-colors duration-300 relative group ${
                     item === 'Home' 
                       ? 'bg-gradient-to-r from-[#6366f1] to-[#a855f7] bg-clip-text text-transparent' 
@@ -930,8 +943,33 @@ const App = () => {
                 </a>
               ))}
             </div>
+            <div className="md:hidden">
+              <button
+                aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
+                onClick={() => setIsMobileMenuOpen((v) => !v)}
+                className="p-2 text-gray-300 hover:text-white"
+              >
+                {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              </button>
+            </div>
           </div>
         </div>
+        {isMobileMenuOpen && (
+          <div className="md:hidden px-[5%] lg:px-[10%] pb-4">
+            <div className="mt-1 rounded-xl border border-white/10 bg-[#030014]/95 backdrop-blur-xl p-2">
+              {['Home', 'About', 'Portfolio', 'Contact'].map((item) => (
+                <a
+                  key={item}
+                  href={`#${item}`}
+                  onClick={(e) => handleNavClick(e, item)}
+                  className="block px-3 py-2 rounded-lg text-gray-300 hover:text-white hover:bg-white/5"
+                >
+                  {item}
+                </a>
+              ))}
+            </div>
+          </div>
+        )}
       </nav>
 
       {/* Main Content */}
