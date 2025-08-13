@@ -2,6 +2,10 @@
   "name": "nicholas-edmund-portfolio",
   "private": true,
   "version": "1.0.0",
+  "engines": {
+    "node": "20.x"
+  },
+  "packageManager": "pnpm@9.12.1",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -30,7 +34,6 @@
     "globals": "^15.11.0",
     "postcss": "^8.5.6",
     "tailwindcss": "^3.4.17",
-    "terser": "^5.43.1",
     "vite": "^5.4.10"
   }
 }
