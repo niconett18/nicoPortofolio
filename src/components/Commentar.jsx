@@ -10,12 +10,12 @@ const Comment = memo(({ comment, formatDate, index, isPinned = false }) => (
     <div 
         className={`px-4 pt-4 pb-2 rounded-xl border transition-all group hover:shadow-lg hover:-translate-y-0.5 ${
             isPinned 
-                ? 'bg-gradient-to-r from-indigo-500/10 to-purple-500/10 border-indigo-500/30 hover:bg-gradient-to-r hover:from-indigo-500/15 hover:to-purple-500/15' 
+                ? 'bg-gradient-to-r from-blue-500/10 to-blue-700/10 border-blue-500/30 hover:bg-gradient-to-r hover:from-blue-500/15 hover:to-blue-700/15' 
                 : 'bg-white/5 border-white/10 hover:bg-white/10'
         }`}
     >
         {isPinned && (
-            <div className="flex items-center gap-2 mb-3 text-indigo-400">
+            <div className="flex items-center gap-2 mb-3 text-blue-400">
                 <Pin className="w-4 h-4" />
                 <span className="text-xs font-medium uppercase tracking-wide">Pinned Comment</span>
             </div>

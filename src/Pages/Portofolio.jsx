@@ -66,7 +66,7 @@ const ToggleButton = ({ onClick, isShowingMore }) => (
         <polyline points={isShowingMore ? "18 15 12 9 6 15" : "6 9 12 15 18 9"}></polyline>
       </svg>
     </span>
-    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-purple-500/50 transition-all duration-300 group-hover:w-full"></span>
+    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-500/50 transition-all duration-300 group-hover:w-full"></span>
   </button>
 );
 
@@ -197,10 +197,10 @@ export default function FullWidthTabs() {
     <div className="md:px-[10%] px-[5%] w-full sm:mt-0 mt-[3rem] bg-[#030014] overflow-hidden" id="Portofolio">
       {/* Header section - unchanged */}
       <div className="text-center pb-10" data-aos="fade-up" data-aos-duration="1000">
-        <h2 className="inline-block text-3xl md:text-5xl font-bold text-center mx-auto text-transparent bg-clip-text bg-gradient-to-r from-[#6366f1] to-[#a855f7]">
+        <h2 className="inline-block text-3xl md:text-5xl font-bold text-center mx-auto text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-blue-700">
           <span style={{
-            color: '#6366f1',
-            backgroundImage: 'linear-gradient(45deg, #6366f1 10%, #a855f7 93%)',
+            color: '#3b82f6',
+            backgroundImage: 'linear-gradient(45deg, #3b82f6 10%, #1d4ed8 93%)',
             WebkitBackgroundClip: 'text',
             backgroundClip: 'text',
             WebkitTextFillColor: 'transparent'

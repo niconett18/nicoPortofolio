@@ -44,7 +44,7 @@ const socialLinks = [
     displayName: "Github",
     subText: "@niconet18",
     icon: Github,
-    url: "https://github.com/niconet18",
+  url: "https://github.com/niconett18",
     color: "#ffffff",
     gradient: "from-[#333] to-[#24292e]",
   },
@@ -122,7 +122,7 @@ const SocialLinks = () => {
         className="text-xl font-semibold text-white mb-6 flex items-center gap-2"
         data-aos="fade-down" 
       >
-        <span className="inline-block w-8 h-1 bg-indigo-500 rounded-full"></span>
+        <span className="inline-block w-8 h-1 bg-blue-500 rounded-full"></span>
         Connect With Me
       </h3>
 

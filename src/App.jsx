@@ -20,7 +20,7 @@ const PERSONAL_INFO = {
 };
 
 const SOCIAL_LINKS = [
-  { icon: Github, link: "https://github.com/niconet18", name: "GitHub", username: "@niconet18" },
+  { icon: Github, link: "https://github.com/niconett18", name: "GitHub", username: "@niconet18" },
   { icon: Linkedin, link: "https://www.linkedin.com/in/nicholas-edmund/", name: "LinkedIn", username: "Let's Connect" },
   { icon: Instagram, link: "https://www.instagram.com/niconet18/", name: "Instagram", username: "@niconet18" },
   { icon: Youtube, link: "https://www.youtube.com/@nicholasedmund", name: "YouTube", username: "@nicholasedmund" },
@@ -113,14 +113,14 @@ const TypewriterEffect = ({ text }) => {
 
 const BackgroundEffect = () => (
   <div className="absolute inset-0 overflow-hidden">
-    <div className="absolute inset-0 bg-gradient-to-r from-indigo-600/20 to-purple-600/20 blur-3xl animate-pulse" />
-    <div className="absolute inset-0 bg-gradient-to-tr from-indigo-600/10 via-transparent to-purple-600/10 blur-2xl animate-float" />
+    <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-blue-800/20 blur-3xl animate-pulse" />
+    <div className="absolute inset-0 bg-gradient-to-tr from-blue-600/10 via-transparent to-blue-800/10 blur-2xl animate-float" />
   </div>
 );
 
 const IconButton = ({ Icon }) => (
   <div className="relative group hover:scale-110 transition-transform duration-300">
-    <div className="absolute -inset-2 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-full blur opacity-30 group-hover:opacity-75 transition duration-300" />
+    <div className="absolute -inset-2 bg-gradient-to-r from-blue-600 to-blue-800 rounded-full blur opacity-30 group-hover:opacity-75 transition duration-300" />
     <div className="relative p-2 sm:p-3 bg-black/50 backdrop-blur-sm rounded-full border border-white/10">
       <Icon className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 text-white" />
     </div>
@@ -131,9 +131,9 @@ const IconButton = ({ Icon }) => (
 const StatusBadge = memo(() => (
   <div className="inline-block animate-float lg:mx-0" data-aos="zoom-in" data-aos-delay="400">
     <div className="relative group">
-      <div className="absolute -inset-0.5 bg-gradient-to-r from-[#6366f1] to-[#a855f7] rounded-full blur opacity-30 group-hover:opacity-50 transition duration-1000"></div>
+      <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-500 to-blue-700 rounded-full blur opacity-30 group-hover:opacity-50 transition duration-1000"></div>
       <div className="relative px-3 sm:px-4 py-2 rounded-full bg-black/40 backdrop-blur-xl border border-white/10">
-        <span className="bg-gradient-to-r from-[#6366f1] to-[#a855f7] text-transparent bg-clip-text sm:text-sm text-[0.7rem] font-medium flex items-center">
+        <span className="bg-gradient-to-r from-blue-500 to-blue-700 text-transparent bg-clip-text sm:text-sm text-[0.7rem] font-medium flex items-center">
           <Sparkles className="sm:w-4 sm:h-4 w-3 h-3 mr-2 text-blue-400" />
           Ready to Innovate
         </span>
@@ -146,15 +146,15 @@ const MainTitle = memo(() => (
   <div className="space-y-2" data-aos="fade-up" data-aos-delay="600">
     <h1 className="text-5xl sm:text-6xl md:text-6xl lg:text-6xl xl:text-7xl font-bold tracking-tight">
       <span className="relative inline-block">
-        <span className="absolute -inset-2 bg-gradient-to-r from-[#6366f1] to-[#a855f7] blur-2xl opacity-20"></span>
-        <span className="relative bg-gradient-to-r from-white via-blue-100 to-purple-200 bg-clip-text text-transparent">
+        <span className="absolute -inset-2 bg-gradient-to-r from-blue-500 to-blue-700 blur-2xl opacity-20"></span>
+        <span className="relative bg-gradient-to-r from-white via-blue-100 to-blue-200 bg-clip-text text-transparent">
           {PERSONAL_INFO.name.split(' ')[0]}
         </span>
       </span>
       <br />
       <span className="relative inline-block mt-2">
-        <span className="absolute -inset-2 bg-gradient-to-r from-[#6366f1] to-[#a855f7] blur-2xl opacity-20"></span>
-        <span className="relative bg-gradient-to-r from-[#6366f1] to-[#a855f7] bg-clip-text text-transparent">
+        <span className="absolute -inset-2 bg-gradient-to-r from-blue-500 to-blue-700 blur-2xl opacity-20"></span>
+        <span className="relative bg-gradient-to-r from-blue-500 to-blue-700 bg-clip-text text-transparent">
           {PERSONAL_INFO.name.split(' ')[1]}
         </span>
       </span>
@@ -188,7 +188,7 @@ const CTAButton = memo(({ href, text, icon: Icon }) => (
 const SocialLink = memo(({ icon: Icon, link }) => (
   <a href={link} target="_blank" rel="noopener noreferrer">
     <button className="group relative p-3">
-      <div className="absolute inset-0 bg-gradient-to-r from-[#6366f1] to-[#a855f7] rounded-xl blur opacity-20 group-hover:opacity-40 transition duration-300"></div>
+      <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-blue-700 rounded-xl blur opacity-20 group-hover:opacity-40 transition duration-300"></div>
       <div className="relative rounded-xl bg-black/50 backdrop-blur-xl p-2 flex items-center justify-center border border-white/10 group-hover:border-white/20 transition-all duration-300">
         <Icon className="w-5 h-5 text-gray-400 group-hover:text-white transition-colors" />
       </div>
@@ -241,8 +241,8 @@ const CardProject = memo(({ Img, Title, Description, Link: ProjectLink, id, tech
 
   return (
     <div className="group relative w-full">
-      <div className="relative overflow-hidden rounded-xl bg-gradient-to-br from-slate-900/90 to-slate-800/90 backdrop-blur-lg border border-white/10 shadow-2xl transition-all duration-300 hover:shadow-purple-500/20">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-purple-500/10 to-pink-500/10 opacity-50 group-hover:opacity-70 transition-opacity duration-300"></div>
+      <div className="relative overflow-hidden rounded-xl bg-gradient-to-br from-slate-900/90 to-slate-800/90 backdrop-blur-lg border border-white/10 shadow-2xl transition-all duration-300 hover:shadow-blue-500/20">
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-blue-600/10 to-blue-700/10 opacity-50 group-hover:opacity-70 transition-opacity duration-300"></div>
         
         <div className="relative p-5 z-10">
           <div className="relative overflow-hidden rounded-lg">
@@ -254,7 +254,7 @@ const CardProject = memo(({ Img, Title, Description, Link: ProjectLink, id, tech
           </div>
           
           <div className="mt-4 space-y-3">
-            <h3 className="text-xl font-semibold bg-gradient-to-r from-blue-200 via-purple-200 to-pink-200 bg-clip-text text-transparent">
+            <h3 className="text-xl font-semibold bg-gradient-to-r from-blue-200 via-blue-300 to-blue-400 bg-clip-text text-transparent">
               {Title}
             </h3>
             
@@ -305,7 +305,7 @@ const TechStackIcon = memo(({ TechStackIcon, Language }) => {
   return (
     <div className="group p-6 rounded-2xl bg-slate-800/50 hover:bg-slate-700/50 transition-all duration-300 ease-in-out flex flex-col items-center justify-center gap-3 hover:scale-105 cursor-pointer shadow-lg hover:shadow-xl">
       <div className="relative">
-        <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full opacity-0 group-hover:opacity-50 blur transition duration-300"></div>
+        <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 to-blue-700 rounded-full opacity-0 group-hover:opacity-50 blur transition duration-300"></div>
         <img 
           src={TechStackIcon} 
           alt={`${Language} icon`} 
@@ -419,7 +419,7 @@ const HomeSection = () => {
                   <span className="text-xl md:text-2xl bg-gradient-to-r from-gray-100 to-gray-300 bg-clip-text text-transparent font-light">
                     {typedText}
                   </span>
-                  <span className="w-[3px] h-6 bg-gradient-to-t from-[#6366f1] to-[#a855f7] ml-1 animate-blink"></span>
+                  <span className="w-[3px] h-6 bg-gradient-to-t from-blue-500 to-blue-700 ml-1 animate-blink"></span>
                 </div>
 
                 {/* Description */}
@@ -455,7 +455,7 @@ const HomeSection = () => {
                  onMouseLeave={() => setIsHovering(false)}
                  data-aos="fade-left" data-aos-delay="600">
               <div className="relative w-full opacity-90">
-                <div className={`absolute inset-0 bg-gradient-to-r from-[#6366f1]/10 to-[#a855f7]/10 rounded-3xl blur-3xl transition-all duration-700 ease-in-out ${isHovering ? "opacity-50 scale-105" : "opacity-20 scale-100"}`}></div>
+                <div className={`absolute inset-0 bg-gradient-to-r from-blue-500/10 to-blue-700/10 rounded-3xl blur-3xl transition-all duration-700 ease-in-out ${isHovering ? "opacity-50 scale-105" : "opacity-20 scale-100"}`}></div>
                 
                 <div className={`relative lg:left-12 z-10 w-full opacity-90 transform transition-transform duration-500 ${isHovering ? "scale-105" : "scale-100"}`}>
                   <DotLottieReact
@@ -479,7 +479,7 @@ const AboutSection = () => {
   const statsData = [
     {
       icon: Code,
-      color: "from-[#6366f1] to-[#a855f7]",
+      color: "from-blue-500 to-blue-700",
       value: PROJECTS.length,
       label: "Total Projects",
       description: "Innovative web solutions crafted",
@@ -487,7 +487,7 @@ const AboutSection = () => {
     },
     {
       icon: Award,
-      color: "from-[#a855f7] to-[#6366f1]",
+      color: "from-blue-700 to-blue-500",
       value: CERTIFICATES.length,
       label: "Certificates",
       description: "Professional skills validated",
@@ -495,7 +495,7 @@ const AboutSection = () => {
     },
     {
       icon: Globe,
-      color: "from-[#6366f1] to-[#a855f7]",
+      color: "from-blue-500 to-blue-700",
       value: "2+",
       label: "Years of Experience",
       description: "Continuous learning journey",
@@ -512,14 +512,14 @@ const AboutSection = () => {
       {/* Header */}
       <div className="text-center lg:mb-8 mb-2 px-[5%]">
         <div className="inline-block relative group">
-          <h2 className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#6366f1] to-[#a855f7]" data-aos="zoom-in-up" data-aos-duration="600">
+          <h2 className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-blue-700" data-aos="zoom-in-up" data-aos-duration="600">
             About Me
           </h2>
         </div>
         <p className="mt-2 text-gray-400 max-w-2xl mx-auto text-base sm:text-lg flex items-center justify-center gap-2" data-aos="zoom-in-up" data-aos-duration="800">
-          <Sparkles className="w-5 h-5 text-purple-400" />
+          <Sparkles className="w-5 h-5 text-blue-400" />
           Transforming ideas into digital experiences
-          <Sparkles className="w-5 h-5 text-purple-400" />
+          <Sparkles className="w-5 h-5 text-blue-400" />
         </p>
       </div>
 
@@ -527,7 +527,7 @@ const AboutSection = () => {
         <div className="flex flex-col-reverse lg:grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           <div className="space-y-6 text-center lg:text-left">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold" data-aos="fade-right" data-aos-duration="1000">
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#6366f1] to-[#a855f7]">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-blue-700">
                 Hello, I'm
               </span>
               <span className="block mt-2 text-gray-200" data-aos="fade-right" data-aos-duration="1300">
@@ -540,11 +540,11 @@ const AboutSection = () => {
             </p>
 
             {/* Quote Section */}
-            <div className="relative bg-gradient-to-br from-[#6366f1]/5 via-transparent to-[#a855f7]/5 border border-gradient-to-r border-[#6366f1]/30 rounded-2xl p-4 my-6 backdrop-blur-md shadow-2xl overflow-hidden" data-aos="fade-up" data-aos-duration="1700">
-              <div className="absolute top-2 right-4 w-16 h-16 bg-gradient-to-r from-[#6366f1]/20 to-[#a855f7]/20 rounded-full blur-xl"></div>
-              <div className="absolute -bottom-4 -left-2 w-12 h-12 bg-gradient-to-r from-[#a855f7]/20 to-[#6366f1]/20 rounded-full blur-lg"></div>
+            <div className="relative bg-gradient-to-br from-blue-500/5 via-transparent to-blue-700/5 border border-gradient-to-r border-blue-500/30 rounded-2xl p-4 my-6 backdrop-blur-md shadow-2xl overflow-hidden" data-aos="fade-up" data-aos-duration="1700">
+              <div className="absolute top-2 right-4 w-16 h-16 bg-gradient-to-r from-blue-500/20 to-blue-700/20 rounded-full blur-xl"></div>
+              <div className="absolute -bottom-4 -left-2 w-12 h-12 bg-gradient-to-r from-blue-700/20 to-blue-500/20 rounded-full blur-lg"></div>
               
-              <div className="absolute top-3 left-4 text-[#6366f1] opacity-30">
+              <div className="absolute top-3 left-4 text-blue-500 opacity-30">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10h-10z"/>
                 </svg>
@@ -557,12 +557,12 @@ const AboutSection = () => {
 
             <div className="flex flex-col lg:flex-row items-center lg:items-start gap-4 lg:gap-4 lg:px-0 w-full">
               <a href={PERSONAL_INFO.cvLink} target="_blank" rel="noopener noreferrer" className="w-full lg:w-auto">
-                <button data-aos="fade-up" data-aos-duration="800" className="w-full lg:w-auto sm:px-6 py-2 sm:py-3 rounded-lg bg-gradient-to-r from-[#6366f1] to-[#a855f7] text-white font-medium transition-all duration-300 hover:scale-105 flex items-center justify-center lg:justify-start gap-2 shadow-lg hover:shadow-xl">
+                <button data-aos="fade-up" data-aos-duration="800" className="w-full lg:w-auto sm:px-6 py-2 sm:py-3 rounded-lg bg-gradient-to-r from-blue-500 to-blue-700 text-white font-medium transition-all duration-300 hover:scale-105 flex items-center justify-center lg:justify-start gap-2 shadow-lg hover:shadow-xl">
                   <FileText className="w-4 h-4 sm:w-5 sm:h-5" /> Download CV
                 </button>
               </a>
               <a href="#Portfolio" className="w-full lg:w-auto">
-                <button data-aos="fade-up" data-aos-duration="1000" className="w-full lg:w-auto sm:px-6 py-2 sm:py-3 rounded-lg border border-[#a855f7]/50 text-[#a855f7] font-medium transition-all duration-300 hover:scale-105 flex items-center justify-center lg:justify-start gap-2 hover:bg-[#a855f7]/10">
+                <button data-aos="fade-up" data-aos-duration="1000" className="w-full lg:w-auto sm:px-6 py-2 sm:py-3 rounded-lg border border-blue-700/50 text-blue-700 font-medium transition-all duration-300 hover:scale-105 flex items-center justify-center lg:justify-start gap-2 hover:bg-blue-700/10">
                   <Code className="w-4 h-4 sm:w-5 sm:h-5" /> View Projects
                 </button>
               </a>
@@ -573,7 +573,7 @@ const AboutSection = () => {
           <div className="flex justify-end items-center sm:p-12 sm:py-0 sm:pb-0 p-0 py-2 pb-2">
             <div className="relative group" data-aos="fade-up" data-aos-duration="1000">
               <div className="absolute -inset-6 opacity-[25%] z-0 hidden sm:block">
-                <div className="absolute inset-0 bg-gradient-to-r from-violet-600 via-indigo-500 to-purple-600 rounded-full blur-2xl animate-spin-slower" />
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-600 via-blue-500 to-blue-700 rounded-full blur-2xl animate-spin-slower" />
                 <div className="absolute inset-0 bg-gradient-to-l from-fuchsia-500 via-rose-500 to-pink-600 rounded-full blur-2xl animate-pulse-slow opacity-50" />
                 <div className="absolute inset-0 bg-gradient-to-t from-blue-600 via-cyan-500 to-teal-400 rounded-full blur-2xl animate-float opacity-50" />
               </div>
@@ -583,7 +583,7 @@ const AboutSection = () => {
                   <div className="absolute inset-0 border-4 border-white/20 rounded-full z-20 transition-all duration-700 group-hover:border-white/40 group-hover:scale-105" />
                   
                   <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/40 z-10 transition-opacity duration-700 group-hover:opacity-0 hidden sm:block" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-purple-500/20 via-transparent to-blue-500/20 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-700 hidden sm:block" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-blue-500/20 via-transparent to-blue-600/20 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-700 hidden sm:block" />
                   
                   <img
                     src="/profile.png"
@@ -627,7 +627,7 @@ const PortfolioSection = () => {
       onClick={() => onClick(index)}
       className={`flex items-center gap-2 px-6 py-3 rounded-lg transition-all duration-300 ${
         isActive 
-          ? 'bg-gradient-to-r from-[#6366f1] to-[#a855f7] text-white shadow-lg' 
+          ? 'bg-gradient-to-r from-blue-500 to-blue-700 text-white shadow-lg' 
           : 'bg-white/5 text-gray-400 hover:text-white hover:bg-white/10'
       }`}
     >
@@ -640,7 +640,7 @@ const PortfolioSection = () => {
     <div className="md:px-[10%] px-[5%] w-full sm:mt-0 mt-[3rem] bg-[#030014] overflow-hidden" id="Portfolio">
       {/* Header */}
       <div className="text-center pb-10" data-aos="fade-up" data-aos-duration="1000">
-        <h2 className="inline-block text-3xl md:text-5xl font-bold text-center mx-auto text-transparent bg-clip-text bg-gradient-to-r from-[#6366f1] to-[#a855f7]">
+        <h2 className="inline-block text-3xl md:text-5xl font-bold text-center mx-auto text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-blue-700">
           Portfolio Showcase
         </h2>
         <p className="text-slate-400 max-w-2xl mx-auto text-sm md:text-base mt-2">
@@ -707,7 +707,7 @@ const ContactSection = () => {
   return (
     <div className="px-[5%] sm:px-[5%] lg:px-[10%]" id="Contact">
       <div className="text-center lg:mt-[5%] mt-10 mb-2 sm:px-0 px-[5%]">
-        <h2 data-aos="fade-down" data-aos-duration="1000" className="inline-block text-3xl md:text-5xl font-bold text-center mx-auto text-transparent bg-clip-text bg-gradient-to-r from-[#6366f1] to-[#a855f7]">
+        <h2 data-aos="fade-down" data-aos-duration="1000" className="inline-block text-3xl md:text-5xl font-bold text-center mx-auto text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-blue-700">
           Let's Get In Touch
         </h2>
         <p data-aos="fade-up" data-aos-duration="1100" className="text-slate-400 max-w-2xl mx-auto text-sm md:text-base mt-2">
@@ -723,7 +723,7 @@ const ContactSection = () => {
             
             <div className="space-y-6">
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-gradient-to-r from-[#6366f1] to-[#a855f7] rounded-full flex items-center justify-center">
+                <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-blue-700 rounded-full flex items-center justify-center">
                   <Mail className="w-6 h-6 text-white" />
                 </div>
                 <div className="flex-1">
@@ -733,7 +733,7 @@ const ContactSection = () => {
               </div>
               
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-gradient-to-r from-[#6366f1] to-[#a855f7] rounded-full flex items-center justify-center">
+                <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-blue-700 rounded-full flex items-center justify-center">
                   <Globe className="w-6 h-6 text-white" />
                 </div>
                 <div className="flex-1">
@@ -849,21 +849,21 @@ const WelcomeScreen = ({ onLoadingComplete }) => {
               >
                 <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold space-y-2 sm:space-y-4">
                   <div className="mb-2 sm:mb-4">
-                    <span data-aos="fade-right" data-aos-delay="200" className="inline-block px-2 bg-gradient-to-r from-white via-blue-100 to-purple-200 bg-clip-text text-transparent">
+                    <span data-aos="fade-right" data-aos-delay="200" className="inline-block px-2 bg-gradient-to-r from-white via-blue-100 to-blue-200 bg-clip-text text-transparent">
                       Welcome
                     </span>{' '}
-                    <span data-aos="fade-right" data-aos-delay="400" className="inline-block px-2 bg-gradient-to-r from-white via-blue-100 to-purple-200 bg-clip-text text-transparent">
+                    <span data-aos="fade-right" data-aos-delay="400" className="inline-block px-2 bg-gradient-to-r from-white via-blue-100 to-blue-200 bg-clip-text text-transparent">
                       To
                     </span>{' '}
-                    <span data-aos="fade-right" data-aos-delay="600" className="inline-block px-2 bg-gradient-to-r from-white via-blue-100 to-purple-200 bg-clip-text text-transparent">
+                    <span data-aos="fade-right" data-aos-delay="600" className="inline-block px-2 bg-gradient-to-r from-white via-blue-100 to-blue-200 bg-clip-text text-transparent">
                       My
                     </span>
                   </div>
                   <div>
-                    <span data-aos="fade-up" data-aos-delay="800" className="inline-block px-2 bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+                    <span data-aos="fade-up" data-aos-delay="800" className="inline-block px-2 bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
                       Portfolio
                     </span>{' '}
-                    <span data-aos="fade-up" data-aos-delay="1000" className="inline-block px-2 bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+                    <span data-aos="fade-up" data-aos-delay="1000" className="inline-block px-2 bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
                       Website
                     </span>
                   </div>
@@ -878,10 +878,10 @@ const WelcomeScreen = ({ onLoadingComplete }) => {
                 data-aos-delay="1200"
               >
                 <div className="inline-flex items-center gap-2 px-4 py-2 sm:px-6 sm:py-3 rounded-full relative group hover:scale-105 transition-transform duration-300">
-                  <div className="absolute inset-0 bg-gradient-to-r from-indigo-600/20 to-purple-600/20 rounded-full blur-md group-hover:blur-lg transition-all duration-300" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-blue-700/20 rounded-full blur-md group-hover:blur-lg transition-all duration-300" />
                   <div className="relative flex items-center gap-2 text-lg sm:text-xl md:text-2xl">
-                    <Globe className="w-4 h-4 sm:w-5 sm:h-5 text-indigo-600" />
-                    <span className="bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+                    <Globe className="w-4 h-4 sm:w-5 sm:h-5 text-blue-600" />
+                    <span className="bg-gradient-to-r from-blue-600 to-blue-700 bg-clip-text text-transparent">
                       <TypewriterEffect text="niconet.site" />
                     </span>
                   </div>
@@ -922,7 +922,7 @@ const App = () => {
           <hr className="my-3 border-gray-400 opacity-15 sm:mx-auto lg:my-6 text-center" />
           <p className="block text-sm pb-4 text-gray-500 text-center">
             © 2025{" "}
-            <a href="https://www.nicholasedmund.dev" className="text-gray-500 hover:text-[#a855f7] hover:underline transition-colors duration-300">
+            <a href="https://www.nicholasedmund.dev" className="text-gray-500 hover:text-blue-700 hover:underline transition-colors duration-300">
               {PERSONAL_INFO.name}™
             </a>
             . All Rights Reserved.
