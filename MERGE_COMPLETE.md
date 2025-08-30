@@ -2,7 +2,7 @@
 
 ## 🎉 **Your Personal Portfolio is Now Ready!**
 
-I have successfully replaced all the default template files with your merged portfolio containing all your personal content from https://niconet.vercel.app/.
+I have successfully replaced all the default template files with your merged portfolio containing all your personal content from https://niconet.site/.
 
 ### 📁 **Files Successfully Replaced:**
 

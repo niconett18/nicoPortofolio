@@ -46,7 +46,7 @@ const PROJECTS = [
     Title: "SumoPower",
     Description: "Marketing site for a battery brand with a clean layout and strong product focus. Features responsive design and modern UI components.",
     Img: "https://placehold.co/400x300/6366f1/ffffff?text=SumoPower",
-    Link: "https://sumopower.vercel.app/",
+  Link: "https://sumopower.id/",
     technologies: ["HTML", "Tailwind CSS", "JavaScript"],
     github: "https://github.com/nicholas-edmund/sumopower"
   },

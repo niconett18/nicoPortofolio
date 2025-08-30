@@ -48,7 +48,7 @@ portfolio/
 ### Projects
 1. **SumoPower** - Marketing site for a battery brand
    - Technologies: HTML, Tailwind CSS, JavaScript
-   - Live Demo: https://sumopower.vercel.app/
+   - Live Demo: https://sumopower.id/
 
 2. **Kantin Teknik UI** - Campus canteen listing
    - Technologies: HTML, Tailwind CSS
