@@ -26,6 +26,6 @@ export default defineConfig({
   optimizeDeps: {
     include: ['react', 'react-dom', 'aos', 'lucide-react', '@lottiefiles/dotlottie-react', 'framer-motion']
   },
-  // GitHub Pages deployment - replace 'nicoPortofolio' with your actual repo name
-  base: process.env.NODE_ENV === 'production' ? '/nicoPortofolio/' : './'
+  // GitHub Pages deployment
+  base: '/nicoPortofolio/'
 })
