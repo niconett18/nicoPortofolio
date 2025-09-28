@@ -26,6 +26,6 @@ export default defineConfig({
   optimizeDeps: {
     include: ['react', 'react-dom', 'aos', 'lucide-react', '@lottiefiles/dotlottie-react', 'framer-motion']
   },
-  // GitHub Pages deployment
-  base: '/nicoPortofolio/'
+  // Custom domain deployment
+  base: '/'
 })
