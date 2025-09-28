@@ -11,6 +11,7 @@ export default defineConfig({
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
+    sourcemap: false,
     rollupOptions: {
       output: {
         manualChunks: {
@@ -25,5 +26,6 @@ export default defineConfig({
   optimizeDeps: {
     include: ['react', 'react-dom', 'aos', 'lucide-react', '@lottiefiles/dotlottie-react', 'framer-motion']
   },
-  base: './'
+  // GitHub Pages deployment - replace 'nicoPortofolio' with your actual repo name
+  base: process.env.NODE_ENV === 'production' ? '/nicoPortofolio/' : './'
 })

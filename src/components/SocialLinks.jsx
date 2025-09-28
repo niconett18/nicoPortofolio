@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+stimport { useEffect } from "react";
 import {
   Linkedin,
   Github,
