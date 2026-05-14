@@ -39,6 +39,17 @@ const lineReveal = {
   visible: { y: "0%", rotate: 0, opacity: 1, transition: { duration: 1.2, ease: "easeOut" as const } }
 };
 
+const modalContentStagger = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.04,
+      delayChildren: 0.04
+    }
+  }
+};
+
 const projects = [
   { 
     id: 1, 
@@ -169,11 +180,11 @@ export default function Home() {
             transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
             className="lg:col-span-5 relative w-full aspect-[3/4] max-w-md mx-auto lg:mx-0 group"
           >
-            <div className="absolute inset-0 bg-zinc-900 border border-zinc-800 transition-transform duration-700 group-hover:-translate-x-4 group-hover:-translate-y-4" />
+            <div className="absolute inset-0 bg-zinc-900 border border-zinc-800 transition-transform duration-700 group-hover:-translate-x-3 group-hover:-translate-y-3" />
             <img 
               src="/DSCF0684.JPG" 
               alt="Nicholas Edmund" 
-              className="absolute inset-0 w-full h-full object-cover grayscale opacity-90 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700 object-center border border-zinc-800"
+              className="absolute inset-0 w-full h-full object-cover opacity-95 group-hover:opacity-100 transition-all duration-700 object-center border border-zinc-800 group-hover:scale-[1.03] group-hover:rotate-[0.3deg]"
             />
           </motion.div>
         </div>
@@ -182,7 +193,7 @@ export default function Home() {
       {/* About Section */}
       <section id="about" className="py-24 md:py-40 px-6 md:px-12 max-w-350 mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 w-full relative z-10 border-t border-zinc-900/50">
         <motion.div 
-          initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={staggerContainer}
+          initial="hidden" whileInView="visible" viewport={{ once: false, margin: "-100px" }} variants={staggerContainer}
           className="lg:col-span-4"
         >
           <motion.h2 variants={fadeUp} className="text-xs tracking-[0.2em] uppercase font-medium text-zinc-500 flex items-center gap-6">
@@ -191,7 +202,7 @@ export default function Home() {
           </motion.h2>
         </motion.div>
         <motion.div 
-          initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={staggerContainer}
+          initial="hidden" whileInView="visible" viewport={{ once: false, margin: "-100px" }} variants={staggerContainer}
           className="lg:col-span-8"
         >
           <motion.p variants={fadeUp} className="text-3xl md:text-5xl leading-[1.1] font-medium mb-20 text-zinc-100 tracking-tight">
@@ -219,7 +230,7 @@ export default function Home() {
       {/* Selected Works Section */}
       <section id="works" className="py-24 md:py-40 px-6 md:px-12 max-w-350 mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 w-full relative z-10 border-t border-zinc-900/50">
         <motion.div 
-          initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={staggerContainer}
+          initial="hidden" whileInView="visible" viewport={{ once: false, margin: "-100px" }} variants={staggerContainer}
           className="lg:col-span-4"
         >
           <motion.h2 variants={fadeUp} className="text-xs tracking-[0.2em] uppercase font-medium text-zinc-500 flex items-center gap-6">
@@ -228,40 +239,49 @@ export default function Home() {
           </motion.h2>
         </motion.div>
         <motion.div 
-          initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={staggerContainer}
+          initial="hidden" whileInView="visible" viewport={{ once: false, margin: "-100px" }} variants={staggerContainer}
           className="lg:col-span-8 flex flex-col w-full"
         >
           <motion.p variants={fadeUp} className="text-lg md:text-xl text-zinc-400 font-light leading-relaxed max-w-2xl mb-12">
             A curated set of shipped products with measurable impact, prioritized for clarity and speed across devices.
           </motion.p>
-          {projects.map((project) => (
-            <motion.button
-              key={project.id}
-              variants={fadeUp}
-              onClick={() => setSelectedProject(project)}
-              className="group text-left border-b border-zinc-900/50 first:border-t first:border-zinc-900/50 py-10 md:py-12 relative w-full overflow-hidden hover:px-6 transition-all duration-500"
-            >
-              {/* Background hover fill */}
-              <div className="absolute inset-0 bg-zinc-900/40 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[0.16,1,0.3,1] z-0" />
-              
-              <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
-                <div className="flex-1">
-                  <p className="text-xs tracking-[0.2em] uppercase text-zinc-500 mb-4 font-medium flex items-center gap-4">
-                    <span className="w-4 h-px bg-zinc-500"></span>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {projects.map((project) => (
+              <motion.button
+                key={project.id}
+                variants={fadeUp}
+                onClick={() => setSelectedProject(project)}
+                className="group text-left border border-zinc-900/60 bg-zinc-950/40 hover:bg-zinc-950/70 transition-colors duration-400"
+              >
+                <div className="relative w-full aspect-4/3 border-b border-zinc-900/60 overflow-hidden">
+                  <Image
+                    src={project.image}
+                    alt={project.imageAlt}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    className="object-cover group-hover:scale-[1.04] transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-linear-to-tr from-zinc-900/45 to-transparent" />
+                </div>
+                <div className="p-6">
+                  <p className="text-xs tracking-[0.2em] uppercase text-zinc-500 font-medium">
                     {project.role}
                   </p>
-                  <h3 className="text-4xl md:text-6xl font-medium text-zinc-300 group-hover:text-zinc-100 transition-colors duration-300 tracking-tight">
-                    {project.name}
-                  </h3>
-                </div>
-                <div className="flex items-center justify-between md:justify-end gap-12 w-full md:w-auto mt-4 md:mt-0">
-                  <div className="w-12 h-12 md:w-16 md:h-16 rounded-none border border-zinc-800 bg-[#050505] group-hover:bg-zinc-100 flex items-center justify-center transition-all duration-500 z-10">
-                    <ArrowUpRight className="text-zinc-400 group-hover:text-[#050505] w-6 h-6 transition-colors duration-300" />
+                  <div className="flex items-center justify-between gap-4 mt-3">
+                    <h3 className="text-2xl md:text-3xl font-medium text-zinc-200 group-hover:text-zinc-100 transition-colors duration-300 tracking-tight">
+                      {project.name}
+                    </h3>
+                    <div className="w-10 h-10 rounded-none border border-zinc-800 bg-[#050505] group-hover:bg-zinc-100 flex items-center justify-center transition-all duration-500">
+                      <ArrowUpRight className="text-zinc-400 group-hover:text-[#050505] w-5 h-5 transition-colors duration-300" />
+                    </div>
                   </div>
+                  <p className="text-zinc-400 text-sm md:text-base mt-3 leading-relaxed line-clamp-2">
+                    {project.desc}
+                  </p>
                 </div>
-              </div>
-            </motion.button>
-          ))}
+              </motion.button>
+            ))}
+          </div>
         </motion.div>
       </section>
 
@@ -272,7 +292,7 @@ export default function Home() {
             initial={{ opacity: 0 }} 
             animate={{ opacity: 1 }} 
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.4 }}
+            transition={{ duration: 0.2 }}
             className="fixed inset-0 z-100 bg-[#050505]/90 backdrop-blur-md flex items-center justify-center p-6 md:p-12 overflow-y-auto"
             onClick={() => setSelectedProject(null)}
           >
@@ -280,37 +300,51 @@ export default function Home() {
               initial={{ scale: 0.95, opacity: 0, y: 30 }}
               animate={{ scale: 1, opacity: 1, y: 0 }}
               exit={{ scale: 0.95, opacity: 0, y: 30 }}
-              transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
               className="bg-[#0a0a0a] border border-zinc-800 w-full max-w-5xl rounded-none flex flex-col shadow-2xl"
               onClick={(e) => e.stopPropagation()}
             >
               {/* Modal Header */}
-              <div className="flex items-center justify-between p-8 border-b border-zinc-900">
-                <h3 className="text-2xl md:text-3xl font-medium tracking-tight text-zinc-100">{selectedProject.name}</h3>
-                <button 
+              <motion.div
+                variants={modalContentStagger}
+                initial="hidden"
+                animate="visible"
+                className="flex items-center justify-between p-8 border-b border-zinc-900"
+              >
+                <motion.h3 variants={fadeUp} className="text-2xl md:text-3xl font-medium tracking-tight text-zinc-100">
+                  {selectedProject.name}
+                </motion.h3>
+                <motion.button 
+                  variants={fadeUp}
                   onClick={() => setSelectedProject(null)}
                   className="p-3 bg-zinc-900 hover:bg-zinc-100 hover:text-black transition-colors duration-300 border border-zinc-800"
                 >
                   <X className="w-5 h-5" />
-                </button>
-              </div>
+                </motion.button>
+              </motion.div>
 
               {/* Modal Content */}
-              <div className="p-8 md:p-12 flex flex-col lg:flex-row gap-12">
-                <div className="flex-1 order-2 lg:order-1">
-                  <div className="mb-12">
+              <motion.div
+                variants={modalContentStagger}
+                initial="hidden"
+                animate="visible"
+                className="p-8 md:p-12 flex flex-col lg:flex-row gap-12"
+              >
+                <motion.div variants={fadeUp} className="flex-1 order-2 lg:order-1">
+                  <motion.div variants={fadeUp} className="mb-12">
                     <h4 className="text-xs tracking-[0.2em] uppercase text-zinc-500 mb-4">About The Project</h4>
                     <p className="text-zinc-300 text-lg leading-relaxed font-light">{selectedProject.desc}</p>
-                  </div>
+                  </motion.div>
                   
-                  <div className="grid grid-cols-1 gap-8 mb-12">
+                  <motion.div variants={fadeUp} className="grid grid-cols-1 gap-8 mb-12">
                     <div>
                       <h4 className="text-xs tracking-[0.2em] uppercase text-zinc-500 mb-2">Role</h4>
                       <p className="text-zinc-200">{selectedProject.role}</p>
                     </div>
-                  </div>
+                  </motion.div>
 
-                  <a 
+                  <motion.a 
+                    variants={fadeUp}
                     href={selectedProject.url} 
                     target="_blank" 
                     rel="noopener noreferrer"
@@ -318,11 +352,11 @@ export default function Home() {
                   >
                     View Live Site
                     <ExternalLink className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-                  </a>
-                </div>
+                  </motion.a>
+                </motion.div>
 
                 {/* Project Image */}
-                <div className="flex-1 order-1 lg:order-2">
+                <motion.div variants={fadeUp} className="flex-1 order-1 lg:order-2">
                   <div className="w-full aspect-4/3 bg-zinc-900 border border-zinc-800 relative overflow-hidden">
                     <Image
                       src={selectedProject.image}
@@ -334,8 +368,8 @@ export default function Home() {
                     />
                     <div className="absolute inset-0 bg-linear-to-tr from-zinc-900/30 to-transparent" />
                   </div>
-                </div>
-              </div>
+                </motion.div>
+              </motion.div>
             </motion.div>
           </motion.div>
         )}
@@ -344,7 +378,7 @@ export default function Home() {
       {/* Tools & Stack Section */}
       <section id="stack" className="py-24 md:py-40 px-6 md:px-12 max-w-350 mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 w-full relative z-10 border-t border-zinc-900/50">
         <motion.div 
-          initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={staggerContainer}
+          initial="hidden" whileInView="visible" viewport={{ once: false, margin: "-100px" }} variants={staggerContainer}
           className="lg:col-span-4"
         >
           <motion.h2 variants={fadeUp} className="text-xs tracking-[0.2em] uppercase font-medium text-zinc-500 flex items-center gap-6">
@@ -353,7 +387,7 @@ export default function Home() {
           </motion.h2>
         </motion.div>
         <motion.div 
-          initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={staggerContainer}
+          initial="hidden" whileInView="visible" viewport={{ once: false, margin: "-100px" }} variants={staggerContainer}
           className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-12 md:gap-y-20"
         >
           {[
@@ -400,7 +434,7 @@ export default function Home() {
       {/* Contact Section */}
       <section id="contact" className="py-24 md:py-40 px-6 md:px-12 max-w-350 mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 w-full relative z-10 border-t border-zinc-900/50">
         <motion.div 
-          initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={staggerContainer}
+          initial="hidden" whileInView="visible" viewport={{ once: false, margin: "-100px" }} variants={staggerContainer}
           className="lg:col-span-4"
         >
           <motion.h2 variants={fadeUp} className="text-xs tracking-[0.2em] uppercase font-medium text-zinc-500 flex items-center gap-6">
@@ -409,7 +443,7 @@ export default function Home() {
           </motion.h2>
         </motion.div>
         <motion.div 
-          initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={staggerContainer}
+          initial="hidden" whileInView="visible" viewport={{ once: false, margin: "-100px" }} variants={staggerContainer}
           className="lg:col-span-8 flex flex-col items-start"
         >
           <motion.h3 variants={fadeUp} className="text-5xl sm:text-7xl lg:text-[7rem] font-medium tracking-tighter mb-16 leading-[0.9] uppercase">
