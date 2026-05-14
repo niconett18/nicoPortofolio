@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowUpRight, X, ExternalLink, Mail, FileText } from "lucide-react";
 import { 
@@ -8,6 +9,13 @@ import {
   SiNodedotjs, SiTypescript, SiExpress, SiPostgresql, 
   SiGit, SiDocker, SiFramer, SiLinux, SiGithub, SiInstagram
 } from "react-icons/si";
+
+import sumopowerImg from "../assets/web/sumopower.png";
+import cloudreamImg from "../assets/web/cloudream.png";
+import foreImg from "../assets/web/fore.png";
+import g2mchurchImg from "../assets/web/g2mchurch.png";
+import todolistImg from "../assets/web/todolist.png";
+import izhadwikaryaImg from "../assets/web/izhadwikarya.png";
 
 // Animations
 const fadeUp = {
@@ -38,6 +46,8 @@ const projects = [
     url: 'https://sumopower.id', 
     desc: 'Commercial e-commerce platform architected for speed and seamless UX.', 
     role: 'Web Development',
+    image: sumopowerImg,
+    imageAlt: 'Sumopower website screenshot'
   },
   { 
     id: 2, 
@@ -45,6 +55,8 @@ const projects = [
     url: 'https://cloudream.id', 
     desc: 'B2B digital platform offering robust enterprise cloud solutions.', 
     role: 'Web Development',
+    image: cloudreamImg,
+    imageAlt: 'Cloudream website screenshot'
   },
   { 
     id: 3, 
@@ -52,6 +64,8 @@ const projects = [
     url: 'https://fore-nico.vercel.app', 
     desc: 'An innovative web project showcasing modern capabilities and clean architecture.', 
     role: 'Web Development',
+    image: foreImg,
+    imageAlt: 'Fore Nico website screenshot'
   },
   { 
     id: 4, 
@@ -59,6 +73,8 @@ const projects = [
     url: 'https://g2mchurch.vercel.app', 
     desc: 'Digital platform engineered for community engagement, offering a seamless user journey.', 
     role: 'Web Development',
+    image: g2mchurchImg,
+    imageAlt: 'G2M Church website screenshot'
   },
   { 
     id: 5, 
@@ -66,6 +82,8 @@ const projects = [
     url: 'https://todolistbynico.vercel.app', 
     desc: 'A high-performance productivity application emphasizing minimalist UX and solid state management.', 
     role: 'Web Development',
+    image: todolistImg,
+    imageAlt: 'To-Do List by Nico website screenshot'
   },
   { 
     id: 6, 
@@ -73,6 +91,8 @@ const projects = [
     url: 'https://idzhardwikarya.vercel.app', 
     desc: 'Corporate landing interface built with precision, delivering optimal performance and aesthetics.', 
     role: 'Web Development',
+    image: izhadwikaryaImg,
+    imageAlt: 'Idzhar Dwi Karya website screenshot'
   }
 ];
 
@@ -106,13 +126,13 @@ export default function Home() {
         transition={{ duration: 1, ease: "easeOut" }}
         className="fixed top-0 w-full z-40 border-b border-zinc-900/50 bg-[#050505]/80 backdrop-blur-md"
       >
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12 h-24 flex items-center justify-between text-xs tracking-[0.2em] uppercase font-medium">
+        <div className="max-w-350 mx-auto px-6 md:px-12 h-24 flex items-center justify-between text-xs tracking-[0.2em] uppercase font-medium">
           <a href="#" className="hover:opacity-60 transition-opacity duration-300 relative group overflow-hidden">
             <span className="block transition-transform duration-300 group-hover:-translate-y-full">NICHOLAS EDMUND</span>
             <span className="block absolute inset-0 transition-transform duration-300 translate-y-full group-hover:translate-y-0">NICHOLAS EDMUND</span>
           </a>
           <div className="hidden md:flex items-center gap-12">
-            {['About', 'Stack', 'Works', 'Contact'].map((item) => (
+            {['About', 'Works', 'Stack', 'Contact'].map((item) => (
               <a key={item} href={`#${item.toLowerCase()}`} className="relative group overflow-hidden">
                 <span className="block transition-transform duration-300 group-hover:-translate-y-full">{item}</span>
                 <span className="block absolute inset-0 transition-transform duration-300 translate-y-full group-hover:translate-y-0">{item}</span>
@@ -123,7 +143,7 @@ export default function Home() {
       </motion.nav>
 
       {/* Hero Section */}
-      <section className="min-h-screen flex items-center pt-24 px-6 md:px-12 max-w-[1400px] mx-auto w-full relative z-10">
+      <section className="min-h-screen flex items-center pt-24 px-6 md:px-12 max-w-350 mx-auto w-full relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 w-full items-center">
           <motion.div variants={staggerContainer} initial="hidden" animate="visible" className="lg:col-span-7">
             <div className="overflow-hidden mb-4">
@@ -160,13 +180,13 @@ export default function Home() {
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-40 px-6 md:px-12 max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 w-full relative z-10 border-t border-zinc-900/50">
+      <section id="about" className="py-24 md:py-40 px-6 md:px-12 max-w-350 mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 w-full relative z-10 border-t border-zinc-900/50">
         <motion.div 
           initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={staggerContainer}
           className="lg:col-span-4"
         >
           <motion.h2 variants={fadeUp} className="text-xs tracking-[0.2em] uppercase font-medium text-zinc-500 flex items-center gap-6">
-            <span className="w-12 h-[1px] bg-zinc-700"></span>
+            <span className="w-12 h-px bg-zinc-700"></span>
             01 / About
           </motion.h2>
         </motion.div>
@@ -196,77 +216,30 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* Tools & Stack Section */}
-      <section id="stack" className="py-40 px-6 md:px-12 max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 w-full relative z-10 border-t border-zinc-900/50">
-        <motion.div 
-          initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={staggerContainer}
-          className="lg:col-span-4"
-        >
-          <motion.h2 variants={fadeUp} className="text-xs tracking-[0.2em] uppercase font-medium text-zinc-500 flex items-center gap-6">
-            <span className="w-12 h-[1px] bg-zinc-700"></span>
-            02 / Stack
-          </motion.h2>
-        </motion.div>
-        <motion.div 
-          initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={staggerContainer}
-          className="lg:col-span-8 grid grid-cols-2 md:grid-cols-3 gap-x-8 gap-y-20"
-        >
-          {[
-            { label: 'Frontend', items: [
-              { name: 'Next.js', icon: SiNextdotjs }, 
-              { name: 'React', icon: SiReact }, 
-              { name: 'Vite', icon: SiVite }, 
-              { name: 'TailwindCSS', icon: SiTailwindcss }
-            ] },
-            { label: 'Backend', items: [
-              { name: 'Node.js', icon: SiNodedotjs }, 
-              { name: 'TypeScript', icon: SiTypescript }, 
-              { name: 'Express', icon: SiExpress }, 
-              { name: 'PostgreSQL', icon: SiPostgresql }
-            ] },
-            { label: 'Tooling', items: [
-              { name: 'Git', icon: SiGit }, 
-              { name: 'Docker', icon: SiDocker }, 
-              { name: 'Framer Motion', icon: SiFramer }, 
-              { name: 'Linux', icon: SiLinux }
-            ] }
-          ].map((category) => (
-            <motion.div key={category.label} variants={fadeUp} className="col-span-2 md:col-span-1">
-              <h3 className="text-zinc-100 font-medium mb-10 uppercase tracking-[0.2em] text-xs opacity-50">{category.label}</h3>
-              <ul className="space-y-6">
-                {category.items.map((item) => (
-                  <li key={item.name} className="flex items-center gap-4 text-zinc-400 hover:text-zinc-100 transition-all duration-300 w-fit cursor-default group">
-                    <item.icon className="w-5 h-5 opacity-70 group-hover:opacity-100 transition-opacity duration-300" />
-                    <span className="font-light tracking-wide">{item.name}</span>
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
-          ))}
-        </motion.div>
-      </section>
-
       {/* Selected Works Section */}
-      <section id="works" className="py-40 px-6 md:px-12 max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 w-full relative z-10 border-t border-zinc-900/50">
+      <section id="works" className="py-24 md:py-40 px-6 md:px-12 max-w-350 mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 w-full relative z-10 border-t border-zinc-900/50">
         <motion.div 
           initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={staggerContainer}
           className="lg:col-span-4"
         >
           <motion.h2 variants={fadeUp} className="text-xs tracking-[0.2em] uppercase font-medium text-zinc-500 flex items-center gap-6">
-            <span className="w-12 h-[1px] bg-zinc-700"></span>
-            03 / Works
+            <span className="w-12 h-px bg-zinc-700"></span>
+            02 / Works
           </motion.h2>
         </motion.div>
         <motion.div 
           initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={staggerContainer}
           className="lg:col-span-8 flex flex-col w-full"
         >
+          <motion.p variants={fadeUp} className="text-lg md:text-xl text-zinc-400 font-light leading-relaxed max-w-2xl mb-12">
+            A curated set of shipped products with measurable impact, prioritized for clarity and speed across devices.
+          </motion.p>
           {projects.map((project) => (
             <motion.button
               key={project.id}
               variants={fadeUp}
               onClick={() => setSelectedProject(project)}
-              className="group text-left border-b border-zinc-900/50 py-12 relative w-full overflow-hidden hover:px-6 transition-all duration-500"
+              className="group text-left border-b border-zinc-900/50 first:border-t first:border-zinc-900/50 py-10 md:py-12 relative w-full overflow-hidden hover:px-6 transition-all duration-500"
             >
               {/* Background hover fill */}
               <div className="absolute inset-0 bg-zinc-900/40 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[0.16,1,0.3,1] z-0" />
@@ -274,7 +247,7 @@ export default function Home() {
               <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
                 <div className="flex-1">
                   <p className="text-xs tracking-[0.2em] uppercase text-zinc-500 mb-4 font-medium flex items-center gap-4">
-                    <span className="w-4 h-[1px] bg-zinc-500"></span>
+                    <span className="w-4 h-px bg-zinc-500"></span>
                     {project.role}
                   </p>
                   <h3 className="text-4xl md:text-6xl font-medium text-zinc-300 group-hover:text-zinc-100 transition-colors duration-300 tracking-tight">
@@ -282,7 +255,7 @@ export default function Home() {
                   </h3>
                 </div>
                 <div className="flex items-center justify-between md:justify-end gap-12 w-full md:w-auto mt-4 md:mt-0">
-                  <div className="w-16 h-16 rounded-none border border-zinc-800 bg-[#050505] group-hover:bg-zinc-100 flex items-center justify-center transition-all duration-500 z-10">
+                  <div className="w-12 h-12 md:w-16 md:h-16 rounded-none border border-zinc-800 bg-[#050505] group-hover:bg-zinc-100 flex items-center justify-center transition-all duration-500 z-10">
                     <ArrowUpRight className="text-zinc-400 group-hover:text-[#050505] w-6 h-6 transition-colors duration-300" />
                   </div>
                 </div>
@@ -300,7 +273,7 @@ export default function Home() {
             animate={{ opacity: 1 }} 
             exit={{ opacity: 0 }}
             transition={{ duration: 0.4 }}
-            className="fixed inset-0 z-[100] bg-[#050505]/90 backdrop-blur-md flex items-center justify-center p-6 md:p-12 overflow-y-auto"
+            className="fixed inset-0 z-100 bg-[#050505]/90 backdrop-blur-md flex items-center justify-center p-6 md:p-12 overflow-y-auto"
             onClick={() => setSelectedProject(null)}
           >
             <motion.div
@@ -341,20 +314,25 @@ export default function Home() {
                     href={selectedProject.url} 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-4 bg-zinc-100 text-[#050505] px-8 py-4 font-medium uppercase tracking-[0.1em] text-sm hover:bg-transparent hover:text-zinc-100 border border-zinc-100 transition-all duration-300 group"
+                    className="inline-flex items-center gap-4 bg-zinc-100 text-[#050505] px-8 py-4 font-medium uppercase tracking-widest text-sm hover:bg-transparent hover:text-zinc-100 border border-zinc-100 transition-all duration-300 group"
                   >
                     View Live Site
                     <ExternalLink className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                   </a>
                 </div>
 
-                {/* Image Placeholder */}
+                {/* Project Image */}
                 <div className="flex-1 order-1 lg:order-2">
-                  <div className="w-full aspect-[4/3] bg-zinc-900 border border-zinc-800 flex items-center justify-center relative overflow-hidden group">
-                    <div className="absolute inset-0 bg-gradient-to-tr from-zinc-800/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                    <span className="text-zinc-600 font-medium tracking-[0.2em] text-xs uppercase z-10 group-hover:scale-110 transition-transform duration-500 text-center px-4">
-                      Project Image <br/> Coming Soon
-                    </span>
+                  <div className="w-full aspect-4/3 bg-zinc-900 border border-zinc-800 relative overflow-hidden">
+                    <Image
+                      src={selectedProject.image}
+                      alt={selectedProject.imageAlt}
+                      fill
+                      sizes="(max-width: 1024px) 100vw, 50vw"
+                      className="object-cover"
+                      priority
+                    />
+                    <div className="absolute inset-0 bg-linear-to-tr from-zinc-900/30 to-transparent" />
                   </div>
                 </div>
               </div>
@@ -363,14 +341,70 @@ export default function Home() {
         )}
       </AnimatePresence>
 
-      {/* Contact Section */}
-      <section id="contact" className="py-40 px-6 md:px-12 max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 w-full relative z-10 border-t border-zinc-900/50">
+      {/* Tools & Stack Section */}
+      <section id="stack" className="py-24 md:py-40 px-6 md:px-12 max-w-350 mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 w-full relative z-10 border-t border-zinc-900/50">
         <motion.div 
           initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={staggerContainer}
           className="lg:col-span-4"
         >
           <motion.h2 variants={fadeUp} className="text-xs tracking-[0.2em] uppercase font-medium text-zinc-500 flex items-center gap-6">
-            <span className="w-12 h-[1px] bg-zinc-700"></span>
+            <span className="w-12 h-px bg-zinc-700"></span>
+            03 / Stack
+          </motion.h2>
+        </motion.div>
+        <motion.div 
+          initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={staggerContainer}
+          className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-12 md:gap-y-20"
+        >
+          {[
+            {
+              label: 'Frontend', items: [
+                { name: 'Next.js', icon: SiNextdotjs }, 
+                { name: 'React', icon: SiReact }, 
+                { name: 'Vite', icon: SiVite }, 
+                { name: 'TailwindCSS', icon: SiTailwindcss }
+              ]
+            },
+            { 
+              label: 'Backend', items: [
+                { name: 'Node.js', icon: SiNodedotjs }, 
+                { name: 'TypeScript', icon: SiTypescript }, 
+                { name: 'Express', icon: SiExpress }, 
+                { name: 'PostgreSQL', icon: SiPostgresql }
+              ]
+            },
+            { 
+              label: 'Tooling', items: [
+                { name: 'Git', icon: SiGit }, 
+                { name: 'Docker', icon: SiDocker }, 
+                { name: 'Framer Motion', icon: SiFramer }, 
+                { name: 'Linux', icon: SiLinux }
+              ]
+            }
+          ].map((category) => (
+            <motion.div key={category.label} variants={fadeUp} className="col-span-1">
+              <h3 className="text-zinc-100 font-medium mb-8 md:mb-10 uppercase tracking-[0.2em] text-xs opacity-50">{category.label}</h3>
+              <ul className="space-y-5 md:space-y-6">
+                {category.items.map((item) => (
+                  <li key={item.name} className="flex items-center gap-4 text-zinc-400 hover:text-zinc-100 transition-all duration-300 w-fit cursor-default group">
+                    <item.icon className="w-5 h-5 opacity-70 group-hover:opacity-100 transition-opacity duration-300" />
+                    <span className="font-light tracking-wide">{item.name}</span>
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+          ))}
+        </motion.div>
+      </section>
+
+      {/* Contact Section */}
+      <section id="contact" className="py-24 md:py-40 px-6 md:px-12 max-w-350 mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 w-full relative z-10 border-t border-zinc-900/50">
+        <motion.div 
+          initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={staggerContainer}
+          className="lg:col-span-4"
+        >
+          <motion.h2 variants={fadeUp} className="text-xs tracking-[0.2em] uppercase font-medium text-zinc-500 flex items-center gap-6">
+            <span className="w-12 h-px bg-zinc-700"></span>
             04 / Contact
           </motion.h2>
         </motion.div>
@@ -416,7 +450,7 @@ export default function Home() {
         </motion.div>
       </section>
 
-      <footer className="py-12 border-t border-zinc-900/50 text-center text-zinc-600 text-xs tracking-[0.2em] uppercase flex flex-col md:flex-row items-center justify-between max-w-[1400px] mx-auto px-6 md:px-12 relative z-10">
+      <footer className="py-12 border-t border-zinc-900/50 text-center text-zinc-600 text-xs tracking-[0.2em] uppercase flex flex-col md:flex-row items-center justify-between max-w-350 mx-auto px-6 md:px-12 relative z-10">
         <p>© {new Date().getFullYear()} Nicholas Edmund.</p>
         <div className="flex gap-8 mt-6 md:mt-0">
           <a href="https://github.com/niconett18" target="_blank" rel="noopener noreferrer" className="hover:text-zinc-100 transition-colors flex items-center gap-3 group">
