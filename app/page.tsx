@@ -191,7 +191,7 @@ export default function Home() {
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-24 md:py-40 px-6 md:px-12 max-w-350 mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 w-full relative z-10 border-t border-zinc-900/50">
+      <section id="about" className="py-16 md:py-40 px-6 md:px-12 max-w-350 mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 w-full relative z-10 border-t border-zinc-900/50">
         <motion.div 
           initial="hidden" whileInView="visible" viewport={{ once: false, margin: "-100px" }} variants={staggerContainer}
           className="lg:col-span-4"
@@ -228,7 +228,7 @@ export default function Home() {
       </section>
 
       {/* Selected Works Section */}
-      <section id="works" className="py-24 md:py-40 px-6 md:px-12 max-w-350 mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 w-full relative z-10 border-t border-zinc-900/50">
+      <section id="works" className="py-16 md:py-40 px-6 md:px-12 max-w-350 mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 w-full relative z-10 border-t border-zinc-900/50">
         <motion.div 
           initial="hidden" whileInView="visible" viewport={{ once: false, margin: "-100px" }} variants={staggerContainer}
           className="lg:col-span-4"
@@ -376,7 +376,7 @@ export default function Home() {
       </AnimatePresence>
 
       {/* Tools & Stack Section */}
-      <section id="stack" className="py-24 md:py-40 px-6 md:px-12 max-w-350 mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 w-full relative z-10 border-t border-zinc-900/50">
+      <section id="stack" className="py-16 md:py-40 px-6 md:px-12 max-w-350 mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 w-full relative z-10 border-t border-zinc-900/50">
         <motion.div 
           initial="hidden" whileInView="visible" viewport={{ once: false, margin: "-100px" }} variants={staggerContainer}
           className="lg:col-span-4"
@@ -432,7 +432,7 @@ export default function Home() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-24 md:py-40 px-6 md:px-12 max-w-350 mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 w-full relative z-10 border-t border-zinc-900/50">
+      <section id="contact" className="py-16 md:py-40 px-6 md:px-12 max-w-350 mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 w-full relative z-10 border-t border-zinc-900/50">
         <motion.div 
           initial="hidden" whileInView="visible" viewport={{ once: false, margin: "-100px" }} variants={staggerContainer}
           className="lg:col-span-4"
