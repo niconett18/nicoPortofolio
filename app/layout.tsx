@@ -9,6 +9,12 @@ export const metadata: Metadata = {
   description: "Fullstack Software Developer & Computer Engineering Student at Universitas Indonesia.",
 };
 
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{

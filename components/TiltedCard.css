@@ -1,12 +1,19 @@
 .tilted-card-figure {
   position: relative;
   width: 100%;
+  max-width: 100%;
   height: 100%;
   perspective: 800px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin: 0 auto;
+}
+
+.profile-card-wrap .tilted-card-inner,
+.profile-card-wrap .tilted-card-img {
+  max-width: 100%;
 }
 
 .tilted-card-mobile-alert {
