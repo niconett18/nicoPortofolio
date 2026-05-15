@@ -9,6 +9,11 @@ import {
   SiNodedotjs, SiTypescript, SiExpress, SiPostgresql, 
   SiGit, SiDocker, SiFramer, SiLinux, SiGithub, SiInstagram
 } from "react-icons/si";
+import dynamic from "next/dynamic";
+
+const Lanyard = dynamic(() => import("../components/Lanyard"), {
+  ssr: false,
+});
 
 import sumopowerImg from "../assets/web/sumopower.png";
 import cloudreamImg from "../assets/web/cloudream.png";
@@ -175,17 +180,14 @@ export default function Home() {
           </motion.div>
           
           <motion.div 
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
-            className="lg:col-span-5 relative w-full aspect-[3/4] max-w-md mx-auto lg:mx-0 group"
+            className="lg:col-span-5 absolute right-0 md:right-[5%] xl:right-[10%] top-[-100px] md:top-[-150px] w-[120%] md:w-[600px] h-[120vh] z-40 pointer-events-none"
           >
-            <div className="absolute inset-0 bg-zinc-900 border border-zinc-800 transition-transform duration-700 group-hover:-translate-x-3 group-hover:-translate-y-3" />
-            <img 
-              src="/DSCF0684.JPG" 
-              alt="Nicholas Edmund" 
-              className="absolute inset-0 w-full h-full object-cover opacity-95 group-hover:opacity-100 transition-all duration-700 object-center border border-zinc-800 group-hover:scale-[1.03] group-hover:rotate-[0.3deg]"
-            />
+            <div className="w-full h-full pointer-events-auto">
+              <Lanyard position={[0, 0, 17]} gravity={[0, -40, 0]} />
+            </div>
           </motion.div>
         </div>
       </section>
