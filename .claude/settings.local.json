@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Skill(update-config)",
+      "Skill(superpowers:brainstorming)",
+      "Bash(npm run *)",
+      "Bash(npm install *)",
+      "Skill(superpowers:subagent-driven-development)",
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Skill(superpowers:requesting-code-review)"
+    ]
+  }
+}

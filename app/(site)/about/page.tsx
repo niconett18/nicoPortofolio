@@ -76,14 +76,27 @@ export default function AboutPage() {
           className="about-cards"
         >
           <motion.article variants={fadeUp} className="about-card">
+            <span className="about-card-index">01</span>
             <h3>Focus</h3>
             <p>
-              Next.js & React ecosystem, backend architecture, and high-performance user interfaces.
+              Next.js &amp; React ecosystem, backend architecture, and high-performance user
+              interfaces.
             </p>
           </motion.article>
           <motion.article variants={fadeUp} className="about-card">
+            <span className="about-card-index">02</span>
             <h3>Education</h3>
-            <p>Computer Engineering Student at Universitas Indonesia.</p>
+            <p>Computer Engineering</p>
+            <p className="about-card-meta">
+              Universitas Indonesia &middot; expected 2027
+            </p>
+          </motion.article>
+          <motion.article variants={fadeUp} className="about-card">
+            <span className="about-card-index">03</span>
+            <h3>Currently</h3>
+            <p>
+              Shipping freelance web work and exploring AI-assisted developer tooling.
+            </p>
           </motion.article>
         </motion.div>
       </section>

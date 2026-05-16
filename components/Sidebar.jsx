@@ -18,7 +18,6 @@ const NAV = [
 export default function Sidebar() {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [hovered, setHovered] = useState(null);
 
   const isActive = (href) => (href === '/' ? pathname === '/' : pathname.startsWith(href));
 
@@ -112,7 +111,7 @@ export default function Sidebar() {
             </button>
           </motion.div>
 
-          <nav className="sidebar-nav" onMouseLeave={() => setHovered(null)}>
+          <nav className="sidebar-nav">
             {NAV.map((item, i) => {
               const active = isActive(item.href);
               return (
@@ -125,29 +124,11 @@ export default function Sidebar() {
                   <Link
                     href={item.href}
                     onClick={closeMobile}
-                    onMouseEnter={() => setHovered(item.href)}
                     className={`sidebar-link ${active ? 'sidebar-link--active' : ''}`}
                     aria-current={active ? 'page' : undefined}
                   >
                     <item.icon className="sidebar-link-icon" size={16} strokeWidth={1.8} aria-hidden="true" />
                     <span className="sidebar-link-label">{item.label}</span>
-                    {active && (
-                      <motion.span
-                        layoutId="sidebar-active"
-                        className="sidebar-link-glow"
-                        transition={{ type: 'spring', stiffness: 380, damping: 32 }}
-                      />
-                    )}
-                    {hovered === item.href && !active && (
-                      <motion.span
-                        layoutId="sidebar-hover"
-                        className="sidebar-link-hover-bar"
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        transition={{ type: 'spring', stiffness: 400, damping: 28 }}
-                      />
-                    )}
                   </Link>
                 </motion.div>
               );

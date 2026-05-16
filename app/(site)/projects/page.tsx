@@ -1,14 +1,35 @@
 'use client';
 
-import { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowUpRight, X, ExternalLink } from 'lucide-react';
 import { projects, type Project } from '../../../lib/projects';
-import { fadeUp, staggerContainer, modalContentStagger } from '../../../lib/animations';
+import { fadeUp, staggerContainer } from '../../../lib/animations';
 
 export default function ProjectsPage() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+
+  const [isMobile, setIsMobile] = useState(() => {
+    if (typeof window === 'undefined') return false;
+    return window.matchMedia('(max-width: 767px)').matches;
+  });
+
+  useEffect(() => {
+    const mq = window.matchMedia('(max-width: 767px)');
+    const handler = (e: MediaQueryListEvent) => setIsMobile(e.matches);
+    mq.addEventListener('change', handler);
+    return () => mq.removeEventListener('change', handler);
+  }, []);
+
+  useEffect(() => {
+    if (selectedProject) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => { document.body.style.overflow = ''; };
+  }, [selectedProject]);
 
   return (
     <div className="page-stack">
@@ -69,74 +90,57 @@ export default function ProjectsPage() {
 
       <AnimatePresence>
         {selectedProject && (
-          <motion.div
-            className="project-modal-backdrop"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={() => setSelectedProject(null)}
-          >
+          <React.Fragment key={selectedProject.id}>
             <motion.div
-              className="project-modal"
-              initial={{ scale: 0.96, opacity: 0, y: 24 }}
-              animate={{ scale: 1, opacity: 1, y: 0 }}
-              exit={{ scale: 0.96, opacity: 0, y: 24 }}
-              transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
-              onClick={(e) => e.stopPropagation()}
+              className="project-drawer-backdrop"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.22 }}
+              onClick={() => setSelectedProject(null)}
+            />
+            <motion.div
+              className="project-drawer"
+              initial={isMobile ? { y: '100%', opacity: 0 } : { x: '100%', opacity: 0 }}
+              animate={isMobile ? { y: 0, opacity: 1 } : { x: 0, opacity: 1 }}
+              exit={isMobile ? { y: '100%', opacity: 0 } : { x: '100%', opacity: 0 }}
+              transition={{ duration: 0.32, ease: [0.22, 1, 0.36, 1] }}
             >
-              <motion.div
-                variants={modalContentStagger}
-                initial="hidden"
-                animate="visible"
-                className="project-modal-header"
-              >
-                <motion.h3 variants={fadeUp}>{selectedProject.name}</motion.h3>
-                <motion.button
+              <div className="project-drawer-handle" />
+              <div className="project-drawer-image">
+                <Image
+                  src={selectedProject.image}
+                  alt={selectedProject.imageAlt}
+                  fill
+                  sizes="(max-width: 767px) 100vw, 560px"
+                  className="object-cover"
+                  priority
+                />
+              </div>
+              <div className="project-drawer-body">
+                <button
                   type="button"
-                  variants={fadeUp}
+                  className="project-drawer-close"
                   onClick={() => setSelectedProject(null)}
                   aria-label="Close"
                 >
-                  <X size={20} />
-                </motion.button>
-              </motion.div>
-
-              <motion.div
-                variants={modalContentStagger}
-                initial="hidden"
-                animate="visible"
-                className="project-modal-content"
-              >
-                <motion.div variants={fadeUp} className="project-modal-copy">
-                  <h4>About the project</h4>
-                  <p>{selectedProject.desc}</p>
-                  <div className="project-modal-meta">
-                    <span>Role</span>
-                    <p>{selectedProject.role}</p>
-                  </div>
-                  <a
-                    href={selectedProject.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="page-btn page-btn--primary"
-                  >
-                    View live site
-                    <ExternalLink size={16} />
-                  </a>
-                </motion.div>
-                <motion.div variants={fadeUp} className="project-modal-image">
-                  <Image
-                    src={selectedProject.image}
-                    alt={selectedProject.imageAlt}
-                    fill
-                    sizes="(max-width: 1024px) 100vw, 50vw"
-                    className="object-cover"
-                    priority
-                  />
-                </motion.div>
-              </motion.div>
+                  <X size={18} />
+                </button>
+                <p className="project-drawer-role">{selectedProject.role}</p>
+                <h3 className="project-drawer-title">{selectedProject.name}</h3>
+                <p className="project-drawer-desc">{selectedProject.desc}</p>
+                <a
+                  href={selectedProject.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="page-btn page-btn--primary"
+                >
+                  View live site
+                  <ExternalLink size={16} />
+                </a>
+              </div>
             </motion.div>
-          </motion.div>
+          </React.Fragment>
         )}
       </AnimatePresence>
     </div>
