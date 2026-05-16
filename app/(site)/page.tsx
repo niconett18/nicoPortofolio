@@ -1,8 +1,13 @@
 'use client';
 
+import dynamic from 'next/dynamic';
 import { motion } from 'framer-motion';
-import ProfileTiltedCard from '../../components/ProfileTiltedCard';
 import { fadeUp, staggerContainer, lineReveal } from '../../lib/animations';
+
+const ProfileTiltedCard = dynamic(() => import('../../components/ProfileTiltedCard'), {
+  ssr: false,
+  loading: () => <div className="profile-card-placeholder" aria-hidden="true" />
+});
 
 export default function HomePage() {
   return (

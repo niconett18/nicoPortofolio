@@ -263,6 +263,14 @@
   overflow: hidden;
 }
 
+.profile-card-placeholder {
+  width: min(100%, 320px);
+  height: 420px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.02));
+  border-radius: 1.25rem;
+}
+
 .page-title {
   font-size: clamp(2.75rem, 11vw, 7.5rem);
   font-weight: 700;

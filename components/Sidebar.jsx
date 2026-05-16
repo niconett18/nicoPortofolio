@@ -4,15 +4,15 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X } from 'lucide-react';
+import { FolderKanban, Home, Mail, UserRound, X } from 'lucide-react';
 import { SiGithub, SiInstagram } from 'react-icons/si';
 import './Sidebar.css';
 
 const NAV = [
-  { href: '/', label: 'Home' },
-  { href: '/about', label: 'About' },
-  { href: '/projects', label: 'Projects' },
-  { href: '/contact', label: 'Contact' }
+  { href: '/', label: 'Home', icon: Home },
+  { href: '/about', label: 'About', icon: UserRound },
+  { href: '/projects', label: 'Projects', icon: FolderKanban },
+  { href: '/contact', label: 'Contact', icon: Mail }
 ];
 
 export default function Sidebar() {
@@ -22,15 +22,22 @@ export default function Sidebar() {
 
   const isActive = (href) => (href === '/' ? pathname === '/' : pathname.startsWith(href));
 
-  useEffect(() => {
-    setMobileOpen(false);
-  }, [pathname]);
+  const closeMobile = () => setMobileOpen(false);
 
   useEffect(() => {
     if (mobileOpen) {
       document.body.style.overflow = 'hidden';
+      const handleKeyDown = (event) => {
+        if (event.key === 'Escape') {
+          closeMobile();
+        }
+      };
+
+      window.addEventListener('keydown', handleKeyDown);
+
       return () => {
         document.body.style.overflow = '';
+        window.removeEventListener('keydown', handleKeyDown);
       };
     }
   }, [mobileOpen]);
@@ -39,11 +46,29 @@ export default function Sidebar() {
     <>
       <button
         type="button"
-        className="sidebar-mobile-trigger"
-        onClick={() => setMobileOpen(true)}
-        aria-label="Open menu"
+        className={`sidebar-mobile-trigger ${mobileOpen ? 'sidebar-mobile-trigger--open' : ''}`}
+        onClick={() => setMobileOpen((open) => !open)}
+        aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
+        aria-expanded={mobileOpen}
+        aria-controls="mobile-sidebar"
       >
-        <Menu size={20} strokeWidth={1.5} />
+        <span className="sidebar-mobile-trigger-icon" aria-hidden="true">
+          <motion.span
+            className="sidebar-mobile-trigger-line"
+            animate={{ rotate: mobileOpen ? 45 : 0, y: mobileOpen ? 7 : 0 }}
+            transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
+          />
+          <motion.span
+            className="sidebar-mobile-trigger-line"
+            animate={{ opacity: mobileOpen ? 0 : 1, scaleX: mobileOpen ? 0.5 : 1 }}
+            transition={{ duration: 0.18, ease: 'easeOut' }}
+          />
+          <motion.span
+            className="sidebar-mobile-trigger-line"
+            animate={{ rotate: mobileOpen ? -45 : 0, y: mobileOpen ? -7 : 0 }}
+            transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
+          />
+        </span>
       </button>
 
       <AnimatePresence>
@@ -54,16 +79,16 @@ export default function Sidebar() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            onClick={() => setMobileOpen(false)}
+            onClick={closeMobile}
             aria-label="Close menu"
           />
         )}
       </AnimatePresence>
 
       <motion.aside
+        id="mobile-sidebar"
         className={`sidebar ${mobileOpen ? 'sidebar--open' : ''}`}
         initial={false}
-        animate={{ x: mobileOpen ? 0 : undefined }}
       >
         <motion.div
           className="sidebar-inner"
@@ -72,17 +97,15 @@ export default function Sidebar() {
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
         >
           <motion.div className="sidebar-brand" layout>
-            <Link href="/" onClick={() => setMobileOpen(false)} className="sidebar-logo">
-              <span className="sidebar-logo-mark">NE</span>
+            <Link href="/" onClick={closeMobile} className="sidebar-logo">
               <span className="sidebar-logo-text">
-                Nicholas
-                <em>Edmund</em>
+                Nicholas Edmund Tanaka
               </span>
             </Link>
             <button
               type="button"
               className="sidebar-close"
-              onClick={() => setMobileOpen(false)}
+              onClick={closeMobile}
               aria-label="Close menu"
             >
               <X size={18} strokeWidth={1.5} />
@@ -101,10 +124,12 @@ export default function Sidebar() {
                 >
                   <Link
                     href={item.href}
-                    onClick={() => setMobileOpen(false)}
+                    onClick={closeMobile}
                     onMouseEnter={() => setHovered(item.href)}
                     className={`sidebar-link ${active ? 'sidebar-link--active' : ''}`}
+                    aria-current={active ? 'page' : undefined}
                   >
+                    <item.icon className="sidebar-link-icon" size={16} strokeWidth={1.8} aria-hidden="true" />
                     <span className="sidebar-link-label">{item.label}</span>
                     {active && (
                       <motion.span
