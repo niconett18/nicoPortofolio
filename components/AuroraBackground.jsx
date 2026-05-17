@@ -8,13 +8,12 @@ export default function AuroraBackground() {
   return (
     <div className="aurora-bg" aria-hidden>
       <Aurora
-        colorStops={['#030712', '#1d4ed8', '#60a5fa']}
-        blend={0.72}
-        amplitude={1.35}
-        speed={0.45}
+        colorStops={['#a9abfc', '#3B82F6', '#06B6D4']}
+        blend={0.5}
+        amplitude={1.0}
+        speed={1}
       />
       <div className="aurora-vignette" />
-      <div className="aurora-noise" />
     </div>
   );
 }

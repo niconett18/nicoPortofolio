@@ -4,6 +4,7 @@ import foreImg from '../assets/web/fore.png';
 import g2mchurchImg from '../assets/web/g2mchurch.png';
 import todolistImg from '../assets/web/todolist.png';
 import izhadwikaryaImg from '../assets/web/izhadwikarya.png';
+import primecapitaledgerImg from '../assets/web/primecapitaledger.png';
 import type { StaticImageData } from 'next/image';
 
 export type Project = {
@@ -19,6 +20,15 @@ export type Project = {
 export const projects: Project[] = [
   {
     id: 1,
+    name: 'Prime Capital Ledger',
+    url: 'https://primecapitaledger.site',
+    desc: 'Financial platform delivering a sleek, trust-driven interface for capital management.',
+    role: 'Web Development',
+    image: primecapitaledgerImg,
+    imageAlt: 'Prime Capital Ledger website screenshot'
+  },
+  {
+    id: 2,
     name: 'sumopower.id',
     url: 'https://sumopower.id',
     desc: 'Commercial e-commerce platform architected for speed and seamless UX.',
@@ -27,7 +37,7 @@ export const projects: Project[] = [
     imageAlt: 'Sumopower website screenshot'
   },
   {
-    id: 2,
+    id: 3,
     name: 'cloudream.id',
     url: 'https://cloudream.id',
     desc: 'B2B digital platform offering robust enterprise cloud solutions.',
@@ -36,7 +46,7 @@ export const projects: Project[] = [
     imageAlt: 'Cloudream website screenshot'
   },
   {
-    id: 3,
+    id: 4,
     name: 'Fore Nico',
     url: 'https://fore-nico.vercel.app',
     desc: 'An innovative web project showcasing modern capabilities and clean architecture.',
@@ -45,7 +55,7 @@ export const projects: Project[] = [
     imageAlt: 'Fore Nico website screenshot'
   },
   {
-    id: 4,
+    id: 5,
     name: 'G2M Church',
     url: 'https://g2mchurch.vercel.app',
     desc: 'Digital platform engineered for community engagement, offering a seamless user journey.',
@@ -54,7 +64,7 @@ export const projects: Project[] = [
     imageAlt: 'G2M Church website screenshot'
   },
   {
-    id: 5,
+    id: 6,
     name: 'To-Do List by Nico',
     url: 'https://todolistbynico.vercel.app',
     desc: 'A high-performance productivity application emphasizing minimalist UX and solid state management.',
@@ -63,7 +73,7 @@ export const projects: Project[] = [
     imageAlt: 'To-Do List by Nico website screenshot'
   },
   {
-    id: 6,
+    id: 7,
     name: 'Idzhar Dwi Karya',
     url: 'https://idzhardwikarya.vercel.app',
     desc: 'Corporate landing interface built with precision, delivering optimal performance and aesthetics.',
